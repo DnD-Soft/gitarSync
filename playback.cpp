@@ -9,7 +9,8 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
         // Handle for the PCM device
         snd_pcm_t *pcm_handle;
 
