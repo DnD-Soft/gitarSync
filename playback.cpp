@@ -98,7 +98,7 @@ int main()
 
     // Playback
         
-    int buff_size, frames, pcm;
+    int frames, pcm;
     unsigned char* data;
     frames = 4096; // periods * periodsize / 4
     data = (unsigned char *)malloc(periodsize);
