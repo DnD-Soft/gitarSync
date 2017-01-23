@@ -100,7 +100,7 @@ int main()
         
     int frames, pcm;
     unsigned char* data;
-    frames = 4096; // periods * periodsize / 4
+    frames = 4096; // (periods * periodsize) / (channels * 2)
     data = (unsigned char *)malloc(periods * periodsize);
 
     while(true)
