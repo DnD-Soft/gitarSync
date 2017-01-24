@@ -96,11 +96,10 @@ int main()
         return -1;
     }
 
-    // Playback
-        
+    // Playback    
     int frames, pcm;
     unsigned char* data;
-    frames = 4096; // (periods * periodsize) / (channels * 2)
+    frames = (periods * periodsize) / (2 * channels);
     data = (unsigned char *)malloc(periods * periodsize);
 
     while(true)
@@ -113,7 +112,7 @@ int main()
         }
         if(pcm = snd_pcm_writei(pcm_handle, data, frames) == -EPIPE)
         {
-            printf("XRUN.\n");
+            printf("Buffer underrun.\n");
             snd_pcm_prepare(pcm_handle);
         }
         else if(pcm < 0)
